@@ -21,7 +21,7 @@ class Estoque {
 
 
     public void mostraTabela(){
-        Console.WriteLine( preco );
+        //Console.WriteLine( preco );
         for(int i=0; i<preco.Count; i++){
         Console.WriteLine($"ID: {i} | {descricao[i]} ====== Quantidade: {Quantidade[i]} Preço: {preco[i]}");
         }
