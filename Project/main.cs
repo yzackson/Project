@@ -4,23 +4,36 @@ using System.Collections.Generic;
 
 class MainClass {
   public static void Main (string[] args) {
+
+    int confirmacao;
+    string nome, sexo, endereco;
+    int idade;
+
     Console.WriteLine (" --------UCL MARKET-------- ");
     Console.WriteLine("Para dar inicio a nossa loja vamos realizar o seu cadastro.\n");
     
     // Colhendo informações do cliente
-    Console.Write("Digite seu nome: ");
-    string nome = Console.ReadLine();
-    Console.Write("Olá {0}, digite seu sexo: ", nome);
-    string sexo = Console.ReadLine();
-    Console.Write("Digite sua idade: ");
-    int idade = int.Parse(Console.ReadLine());
-    Console.Write("Digite seu Endereço: ");
-    string endereco = Console.ReadLine();
+    do {
+      Console.Write("Digite seu nome: ");
+      nome = Console.ReadLine();
+      Console.Write("Olá {0}, digite seu sexo: ", nome);
+      sexo = Console.ReadLine();
+      Console.Write("Digite sua idade: ");
+      idade = int.Parse(Console.ReadLine());
+      Console.Write("Digite seu Endereço: ");
+      endereco = Console.ReadLine();
+
+      Console.WriteLine("\n\nOs dados cadastrados são:\nNome: {0}\nSexo: {1}\nIdade: {2}\nEndereço: {3}", nome, sexo, idade, endereco);
+      Console.WriteLine("\nConfirma os dados? Digite \"1\" para Sim ou \"2\" para Não");
+      confirmacao = int.Parse(Console.ReadLine());
+
+    } while (confirmacao != 1);
     
     //Instanciando Cliente
     CadastroCliente Cliente = new CadastroCliente(nome, sexo, idade, endereco );
    
     Console.WriteLine("Cadastro realizado com sucesso!\n");
+    Console.Clear();
     Console.WriteLine("\n======== Produtos disponíveis ========\n");
 
     //Instanciando estoque
@@ -28,7 +41,7 @@ class MainClass {
 
     //Chamando métodos da classe Produtos
     Produtos.mostraTabela();
-    Produtos.GetDescricao();
+    //Produtos.GetDescricao();
 
     Carrinho carrinho = new Carrinho();
     
